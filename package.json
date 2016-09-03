@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "translate": "node_modules/.bin/babel-node.cmd src/index.js"
+    "crawler": "node_modules/.bin/babel-node.cmd src/index.js"
   },
   "repository": {
     "type": "git",
