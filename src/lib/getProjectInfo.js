@@ -8,7 +8,6 @@ let options = {
     }
 }
 
-
 export default async(url) => {
 
     let result = {}
@@ -16,16 +15,14 @@ export default async(url) => {
     console.log('进入 getProjectInfo 函数')
     options.uri = url
 
-    try{
+    try {
         result = Object.assign({}, result, await request(options))
-    }catch(err) {
+    } catch (err) {
         result = {"err": "请求出错"}
-        console.log(err)
+        // console.log(err)
     }
-
     return result
 }
-
 
 async function request(options) {
     // 开始 请求
@@ -94,12 +91,6 @@ async function request(options) {
         result['price' + (index + 1)] = price
         result['price_cnt_price_limit' + (index + 1)] = price_cnt_price_limit
     })
-
-
-
-
-
-
 
 
     return result
