@@ -1,4 +1,8 @@
 import  getProjectUrl from './lib/getAllProjectUrl'
+import getProjectInfo from './lib/getProjectInfo'
+
+var fs = require('fs');
+var path = require('path');
 
 (async () => {
     console.log('================== start =======================')
@@ -18,4 +22,11 @@ import  getProjectUrl from './lib/getAllProjectUrl'
     console.log(await getProjectUrl(55, '目标金额'))
     console.timeEnd('请求 55 个 project的url共耗时（目标金额排序）')
     console.log('==================  end  =======================')
+
+    // try {
+    //     await getProjectInfo('http://www.zhongchou.com/deal-show/id-391372')
+    // } catch(err) {
+    //     console.log(err)
+    // }
+
 })()

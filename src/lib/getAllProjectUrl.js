@@ -9,6 +9,7 @@ let options = {
     }
 }
 let urlPrefix = ''
+let currentTime = ''
 
 // 抛出一个方法，接受参数 url 待抓取的网址，默认为 http://wwww.zhongchou.com/browser
 // sort 表示项目的 排序方式，支持的有‘默认’‘最新上线’‘目标金额’‘支持人数’‘筹款额’，不支持正序和逆序的选择。
@@ -33,6 +34,8 @@ export default async(num = 0, sort = '默认', url = 'http://www.zhongchou.com/b
     if (!Number.isInteger(num) || num < 0) {
         throw new Error('需要抓取的项目 url 的数量只能为正整数,或 0（代表抓取所有）')
     }
+
+    currentTime = new Date().getTime()
 
     return await gogogo(url, sort, num)
 }
@@ -69,6 +72,11 @@ async function gogogo(url, sort, num) {
                 break
             }
             result = Object.assign({}, result, newResult)
+
+            console.log('================== start ===================')
+            console.log('抓取第' + i + '页')
+            console.log('已抓取' + Object.keys(result).length + '个 projectUrl')
+            console.log('================== end ===================')
         }
     }
 
@@ -94,7 +102,7 @@ async function request(options, num = '') {
             return false
         }
         url = $(item).attr('href')
-        key = url + '_' + new Date().getTime()
+        key = url + '_' + currentTime
         result[key] = url
     })
 
