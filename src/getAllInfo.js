@@ -51,7 +51,7 @@ async function gogogo() {
 async function wait () {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve('等了三秒了哈')
-        }, 3000)
+            resolve('等了五秒了哈')
+        }, 5000)
     })
 }

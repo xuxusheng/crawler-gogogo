@@ -9,6 +9,6 @@ import getAllInfo from './getAllInfo'
         let result = await getAllInfo()
         console.log('请求 over')
     } catch(err) {
-        console.(err)
+        console.log(err)
     }
 })();
