@@ -86,12 +86,17 @@ async function request(options) {
     // result.lottery_base
 
     $('.zcjeOuterBox .zcje_ItemBox').each((index, item) => {
+
         let price = $(item).find('h3 b').text()
-        let price_cnt_price_limit = $(item).find('h3').text()
+        let price_disp = $(item).find('.zcje_textP').text()
+        let price_cnt_price_limit = $(item).find('h3').text().replace($(item).find('h3 b').text(), '')
+
         result['price' + (index + 1)] = price
+        result['price_disp' + (index + 1)] = price_disp
         result['price_cnt_price_limit' + (index + 1)] = price_cnt_price_limit
     })
 
+    result.prj_disp_lenth = $('#xmxqBox').text().length
 
     return result
 }
