@@ -117,10 +117,10 @@ function calc(perPageNum, num) {
         }
     }
 
-    // 除了最后一页，需要抓取的页数
-    let grabPageNum = num % perPageNum
     // 最后一页需要抓取的 project 数量
-    let lastPageProjectNum = num - grabPageNum * perPageNum
+    let lastPageProjectNum = num % perPageNum
+    // 除了最后一页，需要抓取的页数
+    let grabPageNum = (num - lastPageProjectNum) / perPageNum
 
     return {
         grabPageNum,
